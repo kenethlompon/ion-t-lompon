@@ -16,7 +16,8 @@ const Tab2: React.FC = () => {
             <IonTitle size="large">Tab 2</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Click Counter" />
+
+        
       </IonContent>
     </IonPage>
   );
