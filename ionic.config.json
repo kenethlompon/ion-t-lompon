@@ -1,0 +1,7 @@
+{
+  "name": "ionic-t-lompon",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
