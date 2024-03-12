@@ -26,7 +26,7 @@ const Tab1: React.FC = () => {
       </IonCardHeader>
       <IonCardContent>NORTHERN BUKIDNON STATE COLLEGE. </IonCardContent>
 
-      <IonButton id="present-alert">Who are you</IonButton>
+      <IonButton id="present-alert" expand="full"> Who are you</IonButton>
       <IonAlert
         trigger="present-alert"
         header="Please enter your info"
