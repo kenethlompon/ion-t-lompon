@@ -54,7 +54,7 @@ const Tab1: React.FC = () => {
         ]}
 
       ></IonAlert>
-      <IonButton id="open-action-sheet"expand="full">Open</IonButton>
+      <IonButton id="open-action-sheet"expand="full">Take action</IonButton>
       <IonActionSheet
         trigger="open-action-sheet"
         header="Actions"
