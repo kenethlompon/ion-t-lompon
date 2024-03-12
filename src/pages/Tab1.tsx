@@ -18,13 +18,13 @@ const Tab1: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonCard>
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      <img alt="Profile" src="https://imgs.search.brave.com/QxsBlQPEcvWqUec00nF9k3PvG_HJxqoPFMY3NAYk2r8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMTEw/MTI3NC5qcGc" />
       <IonCardHeader>
-        <IonCardTitle>Card Title</IonCardTitle>
-        <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+        <IonCardTitle>Keneth Lompon</IonCardTitle>
+        <IonCardSubtitle>Student</IonCardSubtitle>
       </IonCardHeader>
 
-      <IonCardContent>Here's a small text description for the card content. Nothing more, nothing less.</IonCardContent>
+      <IonCardContent>NORTHERN BUKIDNON STATE COLLEGE. </IonCardContent>
     </IonCard>
         
       </IonContent>
