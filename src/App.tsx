@@ -59,6 +59,17 @@ const App: React.FC = () => (
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
+
+{/*Application default route*/}
+        <Route exact path="/">
+            <Redirect to="/Home" />
+          </Route>
+{/*Home route */}
+          <Route exact path="/">
+            <Redirect to="/Home" />
+            <Home />
+          </Route>
+
         <IonTabBar slot="bottom">
         <IonTabButton tab="Home" href="/Home">
             <IonIcon aria-hidden="true" icon={homeOutline} />
