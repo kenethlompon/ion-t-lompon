@@ -11,6 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { calculatorOutline, ellipse, homeOutline, nuclearOutline, personCircleOutline, square, triangle } from 'ionicons/icons';
+import Home from './pages/Home';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -33,7 +34,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import Home from './pages/Home';
+
 
 setupIonicReact();
 
@@ -78,6 +79,8 @@ const App: React.FC = () => (
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
+
+    
   </IonApp>
 );
 
