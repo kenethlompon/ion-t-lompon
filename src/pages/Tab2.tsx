@@ -1,8 +1,10 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
+import React, { useState } from 'react';
 import './Tab2.css';
 
 const Tab2: React.FC = () => {
+  const [count, setCount] = useState(0);
+
   return (
     <IonPage>
       <IonHeader>
@@ -11,13 +13,10 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
-        
+        <IonButton onClick={() => setCount(count + 1)}>
+          Click me!
+        </IonButton>
+        <p>You have clicked {count} times.</p>
       </IonContent>
     </IonPage>
   );
