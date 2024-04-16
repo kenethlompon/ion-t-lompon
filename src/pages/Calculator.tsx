@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
-import './Tab3.css';
+import './Calculator.css';
 
 const Calculator: React.FC = () => {
   const [displayValue, setDisplayValue] = useState('0');
