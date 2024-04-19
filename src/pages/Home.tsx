@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton, IonIcon } from '@ionic/react';
-import { calculator } from 'ionicons/icons';
+import { apertureOutline, calculator } from 'ionicons/icons';
 import './ClickCounter.css';
 
 const ClickCounter: React.FC = () => {
@@ -37,7 +37,9 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonCard>
           <IonCardContent>
-            <IonButton routerLink="/click-counter">Click Counter</IonButton>
+          <IonButton routerLink="/click counter">
+            <IonIcon icon={apertureOutline} />
+           Click Counter</IonButton>
           </IonCardContent>
         </IonCard>
         <IonCard>
