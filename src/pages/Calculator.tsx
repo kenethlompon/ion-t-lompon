@@ -71,6 +71,7 @@ const Calculator: React.FC = () => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/" />
           </IonButtons>
+
           <IonTitle>Calculator</IonTitle>
         </IonToolbar>
       </IonHeader>
