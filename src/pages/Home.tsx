@@ -37,14 +37,14 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonCard>
           <IonCardContent>
-          <IonButton routerLink="/click counter">
+          <IonButton expand="block"routerLink="/click counter">
             <IonIcon icon={apertureOutline} />
            Click Counter</IonButton>
           </IonCardContent>
         </IonCard>
         <IonCard>
           <IonCardContent>
-            <IonButton routerLink="/calculator">
+            <IonButton expand="block" routerLink="/calculator">
               <IonIcon icon={calculator} />
               Calculator
             </IonButton>
