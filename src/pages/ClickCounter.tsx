@@ -5,6 +5,14 @@ import './ClickCounter.css';
 const ClickCounter: React.FC = () => {
   const [count, setCount] = useState(0);
 
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  const resetCount = () => {
+    setCount(0);
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -16,8 +24,11 @@ const ClickCounter: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonButton onClick={() => setCount(count + 1)}>
+        <IonButton onClick={incrementCount}>
           Click me!
+        </IonButton>
+        <IonButton onClick={resetCount} color="danger">
+          Reset
         </IonButton>
         <p>You have clicked {count} times.</p>
       </IonContent>
@@ -26,4 +37,3 @@ const ClickCounter: React.FC = () => {
 };
 
 export default ClickCounter;
- 
