@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton, IonIcon } from '@ionic/react';
-import { calculator } from 'ionicons/icons';
+import { apertureOutline, bookOutline, calculator } from 'ionicons/icons';
 import './ClickCounter.css';
 
 const ClickCounter: React.FC = () => {
@@ -37,17 +37,28 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonCard>
           <IonCardContent>
-            <IonButton routerLink="/click-counter">Click Counter</IonButton>
+          <IonButton expand="block"routerLink="/click counter">
+            <IonIcon icon={apertureOutline} />
+           Click Counter</IonButton>
           </IonCardContent>
         </IonCard>
         <IonCard>
           <IonCardContent>
-            <IonButton routerLink="/calculator">
+            <IonButton expand="block" routerLink="/calculator">
               <IonIcon icon={calculator} />
               Calculator
             </IonButton>
           </IonCardContent>
         </IonCard>
+
+        <IonCard>
+          <IonCardContent>
+          <IonButton expand="block"routerLink="/todolist">
+            <IonIcon icon={bookOutline} />
+           To do List</IonButton>
+          </IonCardContent>
+        </IonCard>
+
       </IonContent>
     </IonPage>
   );
