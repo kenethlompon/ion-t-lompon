@@ -12,7 +12,7 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import { calculatorOutline, closeOutline, ellipse, homeOutline, nuclearOutline, personCircleOutline, square, triangle } from 'ionicons/icons';
 import Home from './pages/Home';
-import Profile from './pages/Profile';
+import Profile from './pages/Home';
 import ClickCounter from './pages/ClickCounter';
 import Calculator from './pages/Calculator';
 import TodoList from './pages/todolist'; // Import the TodoList page component
@@ -50,7 +50,7 @@ const App: React.FC = () => (
           <Route exact path="/Profile">
             <Profile />
           </Route>
-          <Route exact path="/Click Counter">
+          <Route exact path="/ClickCounter">
             <ClickCounter />
           </Route>
           <Route path="/Calculator">
