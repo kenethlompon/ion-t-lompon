@@ -36,53 +36,47 @@ const cardData = [
   {
     title: 'Click Counter',
     icon: speedometerOutline,
-    subtitle: 'Applet #1',
+    subtitle: 'App 1',
     link: '/clickcounter',
     tags: {
-      tag1: logoIonic,
-      tag2: logoReact
+
     }
 
   },
   {
     title: 'Calculator',
     icon: calculator,
-    subtitle: 'Applet #2',
+    subtitle: 'App 2',
     link: '/calculator',
     tags: {
-      tag1: logoIonic,
-      tag2: logoReact
+
     }
   },
   {
     title: 'To Do List',
     icon: pencil,
-    subtitle: 'Applet #3',
+    subtitle: 'App 3',
     link: '/todolist',
     tags: {
-      tag1: logoIonic,
-      tag2: logoReact
+ 
     }
   },
   {
     title: 'Quote Generator',
     icon: chatbubble,
-    subtitle: 'Applet #4',
+    subtitle: 'App 4',
     link: '/qoutegenerator',
     tags: {
-      tag1: logoIonic,
-      tag2: logoReact
+
     }
   },
   {
     title: 'Notes',
     icon: readerOutline,
-    subtitle: 'Applet #5',
+    subtitle: 'App 5',
     link: '/notes',
     tags: {
-      tag1: logoIonic,
-      tag2: logoReact, 
-      tag3: logoFirebase 
+
     }
   }
   
@@ -130,7 +124,7 @@ const Home: React.FC = () => {
                               <IonIcon
                                 key={i}
                                 className="home-card-subicon"
-                                icon={icon}
+         
                                 color="primary" // Set color as needed
                               />
                             ))}
