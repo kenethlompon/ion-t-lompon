@@ -47,7 +47,7 @@ const TodoList: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/" />
+            <IonBackButton defaultHref="/Home" />
           </IonButtons>
           <IonTitle>Todo List</IonTitle>
         </IonToolbar>

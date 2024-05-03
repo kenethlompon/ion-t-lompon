@@ -17,6 +17,7 @@ import ClickCounter from './pages/ClickCounter';
 import Calculator from './pages/Calculator';
 import TodoList from './pages/todolist'; // Import the TodoList page component
 import Qoutegenerator  from './pages/qoutegenerator'; // Import the TodoList page component
+import Notes from './pages/notes/notes';
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -65,6 +66,11 @@ const App: React.FC = () => (
           <Route path="/qoutegenerator">
             <Qoutegenerator />
           </Route>
+
+          <Route path="/notes">
+            <Notes />
+          </Route>
+
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom">
