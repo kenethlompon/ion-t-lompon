@@ -16,7 +16,7 @@ import Profile from './pages/Profile';
 import ClickCounter from './pages/ClickCounter';
 import Calculator from './pages/Calculator';
 import TodoList from './pages/todolist'; // Import the TodoList page component
-import Qoutegenerator  from './pages/qoutegenerator'; // Import the TodoList page component
+import Qoutegenerator  from './pages/qoutegenerator/qoutegenerator'; // Import the TodoList page component
 import Notes from './pages/notes/notes';
 
 

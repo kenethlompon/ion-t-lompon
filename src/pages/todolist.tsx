@@ -206,7 +206,7 @@ const deleteNote = async (index: number) => {
         {/*Todo list output*/}
         <br></br>
         <IonItemDivider color="light">
-          <IonLabel>Notes</IonLabel>
+          <IonLabel>Lists</IonLabel>
         </IonItemDivider>
         <IonList>
           {notes
