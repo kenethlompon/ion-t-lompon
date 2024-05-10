@@ -48,26 +48,26 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/Home">
+          <Route exact path="/ion-t-lompon/Home">
             <Home />
           </Route>
-          <Route exact path="/Profile">
+          <Route exact path="/ion-t-lompon/Profile">
             <Profile />
           </Route>
-          <Route exact path="/ClickCounter">
+          <Route exact path="/ion-t-lompon/ClickCounter">
             <ClickCounter />
           </Route>
-          <Route path="/Calculator">
+          <Route path="/ion-t-lompon/Calculator">
             <Calculator />
           </Route>
-          <Route path="/todolist"> {/* Add a route for the TodoList page */}
+          <Route path="/ion-t-lompon/todolist"> {/* Add a route for the TodoList page */}
             <TodoList />
           </Route>
-          <Route path="/qoutegenerator">
+          <Route path="/ion-t-lompon/qoutegenerator">
             <Qoutegenerator />
           </Route>
 
-          <Route path="/notes">
+          <Route path="/ion-t-lompon/notes">
             <Notes />
           </Route>
 
