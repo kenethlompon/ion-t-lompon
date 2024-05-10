@@ -109,8 +109,8 @@ const Home: React.FC = () => {
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((card, index) => (
-              <IonCard key={index} href={card.link}>
-                <IonCardHeader>
+              <IonCard key={index} routerLink={card.link} routerDirection='forward'>
+              <IonCardHeader>
                   <IonCardTitle>
                     <IonGrid>
                       <IonRow>
