@@ -37,7 +37,7 @@ const cardData = [
     title: 'Click Counter',
     icon: speedometerOutline,
     subtitle: 'App 1',
-    link: '/clickcounter',
+    link: '/ion-t-lompon/Home/ClickCounter',
     tags: {
 
     }
@@ -47,7 +47,7 @@ const cardData = [
     title: 'Calculator',
     icon: calculator,
     subtitle: 'App 2',
-    link: '/calculator',
+    link: '/ion-t-lompon/Home/Calculator',
     tags: {
 
     }
@@ -56,7 +56,7 @@ const cardData = [
     title: 'To Do List',
     icon: pencil,
     subtitle: 'App 3',
-    link: '/todolist',
+    link: '/ion-t-lompon/Home/todolist',
     tags: {
  
     }
@@ -65,7 +65,7 @@ const cardData = [
     title: 'Quote Generator',
     icon: chatbubble,
     subtitle: 'App 4',
-    link: '/qoutegenerator',
+    link: '/ion-t-lompon/Home/ClickCounter',
     tags: {
 
     }
@@ -74,7 +74,7 @@ const cardData = [
     title: 'Notes',
     icon: readerOutline,
     subtitle: 'App 5',
-    link: '/notes',
+    link: '/ion-t-lompon/Home/notes',
     tags: {
 
     }
@@ -86,21 +86,21 @@ const Home: React.FC = () => {
   {/*Dynamic Search*/}
   const [searchTerm, setSearchTerm] = useState<string>('');
   
-    return (
-      <IonPage>
-        <IonHeader>
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Home</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent fullscreen>
+        <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle>Home</IonTitle>
+            <IonTitle size="large">Home</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent fullscreen>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">Home</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          
-          {/*Dynamic Search*/}
+      {/*Dynamic Search*/}
+      
           <IonSearchbar 
             value={searchTerm} 
             onIonInput={(e) => setSearchTerm(e.target.value ?? '')} 
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((card, index) => (
-              <IonCard key={index} href={card.link}>
+              <IonCard key={index} href={card.link} routerDirection='forward'>
                 <IonCardHeader>
                   <IonCardTitle>
                     <IonGrid>

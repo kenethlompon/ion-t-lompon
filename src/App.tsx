@@ -45,48 +45,43 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/Home">
-            <Home />
-          </Route>
-          <Route exact path="/Profile">
-            <Profile />
-          </Route>
-          <Route exact path="/ClickCounter">
-            <ClickCounter />
-          </Route>
-          <Route path="/Calculator">
-            <Calculator />
-          </Route>
-          <Route path="/todolist"> {/* Add a route for the TodoList page */}
-            <TodoList />
-          </Route>
-          <Route path="/qoutegenerator">
-            <Qoutegenerator />
-          </Route>
-
-          <Route path="/notes">
-            <Notes />
-          </Route>
-
-        </IonRouterOutlet>
-
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="Home" href="/Home">
-            <IonIcon aria-hidden="true" icon={homeOutline} />
-            <IonLabel>Home</IonLabel>
+  <IonReactRouter>
+    <IonTabs>
+      <IonRouterOutlet>
+      <Route exact path="/ionic-t-lompon/Home">
+          <Home />
+        </Route>
+        <Route exact path="/ionic-t-lompon/Home/Profile">
+          <Profile />
+        </Route>
+        <Route exact path="/ionic-t-lompon/Home/ClickCounter">
+          <ClickCounter />
+        </Route>
+        <Route path="/ionic-t-lompon/Home/Calculator">
+          <Calculator />
+        </Route>
+        <Route path="/ionic-t-lompon/Home/todolist">
+          <TodoList />
+        </Route>
+        <Route path="/ionic-t-lompon/Home/qoutegenerator">
+          <Qoutegenerator />
+        </Route>
+        <Route path="/ionic-t-lompon/Home/Notes">
+          <Notes />
+        </Route>
+        <Route exact path="/ionic-t-lompon/">
+          <Redirect to="/ionic-t-lompon/Home" />
+        </Route>
+      </IonRouterOutlet>
+      <IonTabBar slot="bottom">
+      <IonTabButton  tab="Home" href="/ionic-t-lompon/Home">
+            <IonIcon aria-hidden="true" color='warning' icon={homeOutline} />
+            <IonLabel color='dark'>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="Close" href="/Close">
-            <IonIcon aria-hidden="true" icon={closeOutline} />
-            <IonLabel>Close</IonLabel>
+          <IonTabButton tab="Profile" href="/ionic-t-lompon/Profile">
+            <IonIcon aria-hidden="true" color='warning' icon={personCircleOutline} />
+            <IonLabel color='dark'>Profile</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="Profile" href="/Profile">
-            <IonIcon aria-hidden="true" icon={personCircleOutline} />
-            <IonLabel>Profile</IonLabel>
-          </IonTabButton>
-          
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
