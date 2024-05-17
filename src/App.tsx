@@ -48,37 +48,39 @@ const App: React.FC = () => (
   <IonReactRouter>
     <IonTabs>
       <IonRouterOutlet>
-      <Route exact path="/ionic-t-lompon/Home">
+      <Route exact path="/ion-t-lompon/">
+          <Redirect to="/ion-t-lompon/Home" />
+        </Route>
+
+      <Route exact path="/ion-t-lompon/home">
           <Home />
         </Route>
-        <Route exact path="/ionic-t-lompon/Home/Profile">
+        <Route exact path="/ion-t-lompon/profile">
           <Profile />
         </Route>
-        <Route exact path="/ionic-t-lompon/Home/ClickCounter">
+        <Route exact path="/ion-t-lompon/clickcounter">
           <ClickCounter />
         </Route>
-        <Route path="/ionic-t-lompon/Home/Calculator">
+        <Route path="/ion-t-lompon/calculator">
           <Calculator />
         </Route>
-        <Route path="/ionic-t-lompon/Home/todolist">
+        <Route path="/ion-t-lompon/todolist">
           <TodoList />
         </Route>
-        <Route path="/ionic-t-lompon/Home/qoutegenerator">
+        <Route path="/ion-t-lompon/qoutegenerator">
           <Qoutegenerator />
         </Route>
-        <Route path="/ionic-t-lompon/Home/Notes">
+        <Route path="/ion-t-lompon/notes">
           <Notes />
         </Route>
-        <Route exact path="/ionic-t-lompon/">
-          <Redirect to="/ionic-t-lompon/Home" />
-        </Route>
+    
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
-      <IonTabButton  tab="Home" href="/ionic-t-lompon/Home">
+      <IonTabButton  tab="Home" href="/ion-t-lompon/home">
             <IonIcon aria-hidden="true" color='warning' icon={homeOutline} />
             <IonLabel color='dark'>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="Profile" href="/ionic-t-lompon/Profile">
+          <IonTabButton tab="Profile" href="/ion-t-lompon/profile">
             <IonIcon aria-hidden="true" color='warning' icon={personCircleOutline} />
             <IonLabel color='dark'>Profile</IonLabel>
           </IonTabButton>

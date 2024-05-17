@@ -37,7 +37,7 @@ const cardData = [
     title: 'Click Counter',
     icon: speedometerOutline,
     subtitle: 'App 1',
-    link: '/ion-t-lompon/Home/ClickCounter',
+    link: '/ion-t-lompon/clickcounter',
     tags: {
 
     }
@@ -47,7 +47,7 @@ const cardData = [
     title: 'Calculator',
     icon: calculator,
     subtitle: 'App 2',
-    link: '/ion-t-lompon/Home/Calculator',
+    link: '/ion-t-lompon/calculator',
     tags: {
 
     }
@@ -56,7 +56,7 @@ const cardData = [
     title: 'To Do List',
     icon: pencil,
     subtitle: 'App 3',
-    link: '/ion-t-lompon/Home/todolist',
+    link: '/ion-t-lompon/todolist',
     tags: {
  
     }
@@ -65,7 +65,7 @@ const cardData = [
     title: 'Quote Generator',
     icon: chatbubble,
     subtitle: 'App 4',
-    link: '/ion-t-lompon/Home/ClickCounter',
+    link: '/ion-t-lompon/qoutegenerator',
     tags: {
 
     }
@@ -74,7 +74,7 @@ const cardData = [
     title: 'Notes',
     icon: readerOutline,
     subtitle: 'App 5',
-    link: '/ion-t-lompon/Home/notes',
+    link: '/ion-t-lompon/notes',
     tags: {
 
     }
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
           {cardData
             .filter((card) => card.title.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((card, index) => (
-              <IonCard key={index} href={card.link} routerDirection='forward'>
+              <IonCard key={index} routerLink={card.link} routerDirection='forward'>
                 <IonCardHeader>
                   <IonCardTitle>
                     <IonGrid>
