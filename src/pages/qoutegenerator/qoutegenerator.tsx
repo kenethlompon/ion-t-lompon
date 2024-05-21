@@ -24,18 +24,23 @@ import {
   IonAlert,
   IonModal,
   IonButtons,
-  IonBackButton
+  IonBackButton,
+  IonSearchbar,
+  IonToggle
 } from '@ionic/react';
-import { trashOutline, pencilOutline, refreshOutline } from 'ionicons/icons';
+import { trashOutline, pencilOutline, refreshOutline, starOutline, star } from 'ionicons/icons';
 
 // Firebase
 import { collection, addDoc, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
 import { db } from './firebase';
 
 const Quotes: React.FC = () => {
-  const [quotes, setQuotes] = useState<{ id: string; text: string; author: string; }[]>([]);
+  const [quotes, setQuotes] = useState<{ id: string; text: string; author: string; favorite: boolean }[]>([]);
   const [newText, setNewText] = useState<string>('');
   const [newAuthor, setNewAuthor] = useState<string>('');
+  const [editIndex, setEditIndex] = useState<number | null>(null);
+  const [searchText, setSearchText] = useState<string>('');
+  const [showFavorites, setShowFavorites] = useState<boolean>(false);
   const inputRefText = useRef<HTMLIonInputElement>(null);
   const inputRefAuthor = useRef<HTMLIonInputElement>(null);
   const [present] = useIonToast();
@@ -51,6 +56,14 @@ const Quotes: React.FC = () => {
     });
   };
 
+  const editQuoteToast = (position: 'middle') => {
+    present({
+      message: 'Changes Saved',
+      duration: 1500,
+      position: position,
+    });
+  };
+
   const deleteQuoteToast = (position: 'middle') => {
     present({
       message: 'Quote deleted',
@@ -59,16 +72,27 @@ const Quotes: React.FC = () => {
     });
   };
 
-  // Add Quote
-  const addQuote = async () => {
+  // Add or Edit Quote
+  const addOrEditQuote = async () => {
     if (newText.trim() !== '' && newAuthor.trim() !== '') {
-      const currentDate = new Date().toISOString();
-      addQuoteToast('middle');
-      await addDoc(collection(db, 'quotegenerator'), {
-        text: newText,
-        author: newAuthor,
-        dateAdded: currentDate
-      });
+      if (editIndex !== null) {
+        editQuoteToast('middle');
+        const quoteToUpdate = quotes[editIndex];
+        await updateDoc(doc(db, 'quotegenerator', quoteToUpdate.id), {
+          text: newText,
+          author: newAuthor
+        });
+        setEditIndex(null);
+      } else {
+        addQuoteToast('middle');
+        const currentDate = new Date().toISOString();
+        await addDoc(collection(db, 'quotegenerator'), {
+          text: newText,
+          author: newAuthor,
+          dateAdded: currentDate,
+          favorite: false
+        });
+      }
       clearInput();
     }
   };
@@ -79,7 +103,8 @@ const Quotes: React.FC = () => {
       setQuotes(snapshot.docs.map(doc => ({
         id: doc.id,
         text: doc.data().text,
-        author: doc.data().author
+        author: doc.data().author,
+        favorite: doc.data().favorite
       })));
     });
     return () => unsubscribe();
@@ -112,6 +137,30 @@ const Quotes: React.FC = () => {
     }
   };
 
+  // Edit Handler
+  const editQuote = (index: number) => {
+    setEditIndex(index);
+    const quoteToEdit = quotes[index];
+    setNewText(quoteToEdit.text);
+    setNewAuthor(quoteToEdit.author);
+  };
+
+  // Toggle Favorite
+  const toggleFavorite = async (index: number) => {
+    const quoteToToggle = quotes[index];
+    await updateDoc(doc(db, 'quotegenerator', quoteToToggle.id), {
+      favorite: !quoteToToggle.favorite
+    });
+  };
+
+  // Filtered Quotes
+  const filteredQuotes = quotes.filter(quote =>
+    quote.text.toLowerCase().includes(searchText.toLowerCase()) ||
+    quote.author.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  const displayedQuotes = showFavorites ? filteredQuotes.filter(quote => quote.favorite) : filteredQuotes;
+
   const [isOpen, setIsOpen] = useState(false);
   return (
     <IonPage>
@@ -121,6 +170,10 @@ const Quotes: React.FC = () => {
             <IonBackButton defaultHref="/Home" />
           </IonButtons>
           <IonTitle>Quote Generator</IonTitle>
+          <IonButtons slot="end">
+            <IonToggle checked={showFavorites} onIonChange={(e) => setShowFavorites(e.detail.checked)} />
+            <IonLabel>Show Favorites</IonLabel>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
@@ -146,49 +199,58 @@ const Quotes: React.FC = () => {
           <IonCardContent>
             <IonRow>
               <IonCol>
-                <IonButton expand="full" onClick={addQuote} color={'dark'}>
-                  Add Quote
+                <IonButton expand="full" onClick={addOrEditQuote} color={'dark'}>
+                  {editIndex !== null ? 'Save Changes' : 'Add Quote'}
                 </IonButton>
               </IonCol>
               <IonCol>
                 <IonButton expand="full" onClick={generateRandomQuote} color={'dark'}>
                   <IonIcon icon={refreshOutline} />
-                   Random Quotes
+                   Random Quote
                 </IonButton>
               </IonCol>
-
               <IonCol>
                 <IonButton expand="full" onClick={() => setIsOpen(true)} color={'dark'}>View Quotes</IonButton>
-                    <IonModal isOpen={isOpen}>
-                      <IonHeader>
-                        <IonToolbar>
-                          <IonTitle>Quotes</IonTitle>
-                          <IonButtons slot="end">
-                            <IonButton onClick={() => setIsOpen(false)}>Close</IonButton>
-                          </IonButtons>
-                        </IonToolbar>
-                      </IonHeader>
-                      <IonContent className="ion-padding">
-                      <IonItemDivider color="light">
+                <IonModal isOpen={isOpen}>
+                  <IonHeader>
+                    <IonToolbar>
+                      <IonTitle>Quotes</IonTitle>
+                      <IonButtons slot="end">
+                        <IonButton onClick={() => setIsOpen(false)}>Close</IonButton>
+                      </IonButtons>
+                    </IonToolbar>
+                  </IonHeader>
+                  <IonContent className="ion-padding">
+                    <IonSearchbar
+                      value={searchText}
+                      onIonInput={(e) => setSearchText(e.detail.value!)}
+                      debounce={300}
+                    ></IonSearchbar>
+                    <IonItemDivider color="light">
                       <IonLabel>Quotes</IonLabel>
                     </IonItemDivider>
                     <IonList>
-                      {quotes.map(quote => (
+                      {displayedQuotes.map((quote, index) => (
                         <IonItem key={quote.id}>
                           <IonLabel>
                             <h2>{quote.text}</h2>
                             <p>- {quote.author}</p>
                           </IonLabel>
+                          <IonButton fill="clear" onClick={() => editQuote(index)}>
+                            <IonIcon icon={pencilOutline} />
+                          </IonButton>
                           <IonButton fill="clear" onClick={() => deleteQuote(quote.id)}>
                             <IonIcon icon={trashOutline} />
+                          </IonButton>
+                          <IonButton fill="clear" onClick={() => toggleFavorite(index)}>
+                            <IonIcon icon={quote.favorite ? star : starOutline} />
                           </IonButton>
                         </IonItem>
                       ))}
                     </IonList>
-                        </IonContent>
-                      </IonModal>
-                  </IonCol>
-
+                  </IonContent>
+                </IonModal>
+              </IonCol>
             </IonRow>
           </IonCardContent>
         </IonCard>
