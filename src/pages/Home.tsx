@@ -36,7 +36,6 @@ const cardData = [
   {
     title: 'Click Counter',
     icon: speedometerOutline,
-    subtitle: 'App 1',
     link: '/clickcounter',
     tags: {
 
@@ -46,7 +45,6 @@ const cardData = [
   {
     title: 'Calculator',
     icon: calculator,
-    subtitle: 'App 2',
     link: '/calculator',
     tags: {
 
@@ -55,7 +53,6 @@ const cardData = [
   {
     title: 'To Do List',
     icon: pencil,
-    subtitle: 'App 3',
     link: '/todolist',
     tags: {
  
@@ -64,7 +61,6 @@ const cardData = [
   {
     title: 'Quote Generator',
     icon: chatbubble,
-    subtitle: 'App 4',
     link: '/qoutegenerator',
     tags: {
 
@@ -73,7 +69,6 @@ const cardData = [
   {
     title: 'Notes',
     icon: readerOutline,
-    subtitle: 'App 5',
     link: '/notes',
     tags: {
 
@@ -119,7 +114,6 @@ const Home: React.FC = () => {
                         </IonCol>
                         <IonCol size="auto">
                             <div className="home-card-title">{card.title}</div>
-                            <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
                             {card.tags && Object.entries(card.tags).map(([key, icon], i) => (
                               <IonIcon
                                 key={i}
