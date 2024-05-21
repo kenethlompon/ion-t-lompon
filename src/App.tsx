@@ -64,6 +64,7 @@ const App: React.FC = () => (
             <TodoList />
           </Route>
           <Route path="/qoutegenerator">
+            
             <Qoutegenerator />
           </Route>
 

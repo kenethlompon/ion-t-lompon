@@ -30,13 +30,12 @@ import {
 import './Home.css';
 
 //Ionic Icons
-import { speedometerOutline,calculator,pencil, chatbubble, readerOutline, logoIonic,logoFirebase, logoReact} from 'ionicons/icons';
+import { speedometerOutline,calculator,pencil, chatbubble, readerOutline, logoIonic,logoFirebase, logoReact, stopwatchOutline, listOutline, chatboxEllipsesOutline, documentTextOutline} from 'ionicons/icons';
 
 const cardData = [
   {
     title: 'Click Counter',
-    icon: speedometerOutline,
-    subtitle: 'App 1',
+    icon: stopwatchOutline,
     link: '/clickcounter',
     tags: {
 
@@ -46,7 +45,6 @@ const cardData = [
   {
     title: 'Calculator',
     icon: calculator,
-    subtitle: 'App 2',
     link: '/calculator',
     tags: {
 
@@ -54,8 +52,7 @@ const cardData = [
   },
   {
     title: 'To Do List',
-    icon: pencil,
-    subtitle: 'App 3',
+    icon: listOutline,
     link: '/todolist',
     tags: {
  
@@ -63,8 +60,7 @@ const cardData = [
   },
   {
     title: 'Quote Generator',
-    icon: chatbubble,
-    subtitle: 'App 4',
+    icon: chatboxEllipsesOutline,
     link: '/qoutegenerator',
     tags: {
 
@@ -72,8 +68,7 @@ const cardData = [
   },
   {
     title: 'Notes',
-    icon: readerOutline,
-    subtitle: 'App 5',
+    icon: documentTextOutline,
     link: '/notes',
     tags: {
 
@@ -119,7 +114,6 @@ const Home: React.FC = () => {
                         </IonCol>
                         <IonCol size="auto">
                             <div className="home-card-title">{card.title}</div>
-                            <IonCardSubtitle>{card.subtitle}</IonCardSubtitle>
                             {card.tags && Object.entries(card.tags).map(([key, icon], i) => (
                               <IonIcon
                                 key={i}
