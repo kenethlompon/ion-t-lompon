@@ -30,12 +30,12 @@ import {
 import './Home.css';
 
 //Ionic Icons
-import { speedometerOutline,calculator,pencil, chatbubble, readerOutline, logoIonic,logoFirebase, logoReact} from 'ionicons/icons';
+import { speedometerOutline,calculator,pencil, chatbubble, readerOutline, logoIonic,logoFirebase, logoReact, stopwatchOutline, listOutline, chatboxEllipsesOutline, documentTextOutline} from 'ionicons/icons';
 
 const cardData = [
   {
     title: 'Click Counter',
-    icon: speedometerOutline,
+    icon: stopwatchOutline,
     link: '/clickcounter',
     tags: {
 
@@ -52,7 +52,7 @@ const cardData = [
   },
   {
     title: 'To Do List',
-    icon: pencil,
+    icon: listOutline,
     link: '/todolist',
     tags: {
  
@@ -60,7 +60,7 @@ const cardData = [
   },
   {
     title: 'Quote Generator',
-    icon: chatbubble,
+    icon: chatboxEllipsesOutline,
     link: '/qoutegenerator',
     tags: {
 
@@ -68,7 +68,7 @@ const cardData = [
   },
   {
     title: 'Notes',
-    icon: readerOutline,
+    icon: documentTextOutline,
     link: '/notes',
     tags: {
 

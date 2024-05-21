@@ -208,6 +208,7 @@ const deleteNote = async (index: number) => {
         <IonItemDivider color="light">
           <IonLabel>Lists</IonLabel>
         </IonItemDivider>
+        
         <IonList>
           {notes
             .slice() // Create a shallow copy of the notes array to avoid mutating the original array
